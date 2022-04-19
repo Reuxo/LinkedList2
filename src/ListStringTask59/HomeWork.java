@@ -111,6 +111,5 @@ public class HomeWork {
         list.pop();
         list.printList();
         //i = 1;
-
     }
 }

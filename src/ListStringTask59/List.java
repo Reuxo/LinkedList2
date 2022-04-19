@@ -82,4 +82,5 @@ public class List {
     private void popHead() {
         this.head = this.head.getNextNode();
     }
+
 }

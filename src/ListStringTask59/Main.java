@@ -30,7 +30,5 @@ public class Main {
         //System.out.println(HomeWork.task8(list8));
         //System.out.println(HomeWork.task9(list89, list9_10));
         HomeWork.task10(list9_10);
-
-
     }
 }
