@@ -10,7 +10,7 @@ public class Main {
             list.push((int) (Math.random() * 25));
         }
         list.printList();
-        System.out.println("Средне арифметическое" + Task1.avg(list));
+        System.out.println("Средне арифметическое : " + Task1.avg(list));
     }
 }
 
