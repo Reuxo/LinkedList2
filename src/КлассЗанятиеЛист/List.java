@@ -36,10 +36,9 @@ public class List {
     }
 
     public void push(int value, int index) {
-        if ( index == 0) {
+        if (index == 0) {
             this.pushHead(value);
-        }
-        else{
+        } else {
             Node nodeTmp = this.head;
             for (int i = 0; i < index - 1 && nodeTmp.getNextNode() != null; i++) {
                 nodeTmp = nodeTmp.getNextNode();
@@ -48,10 +47,12 @@ public class List {
             nodeTmp.setNextNode(nextNode);
         }
     }
+
     private void pushHead(int value) {
         Node node = new Node(value, this.head);
         this.head = node;
     }
+
     public void pop() {
         Node nodeTmp = this.head;
         while (nodeTmp.getNextNode().getNextNode() != null) {
@@ -59,6 +60,7 @@ public class List {
         }
         nodeTmp.setNextNode(null);
     }
+
     public void pop(int index) {
         if (index == 0) {
             popHead();
@@ -70,7 +72,9 @@ public class List {
             nodeTmp.setNextNode(nodeTmp.getNextNode().getNextNode());
         }
     }
+
     private void popHead() {
         this.head = this.head.getNextNode();
     }
+    
 }
