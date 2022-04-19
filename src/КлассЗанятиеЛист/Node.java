@@ -34,4 +34,5 @@ public class Node {
         this.value = value;
         this.nextNode = null;
     }
+
 }

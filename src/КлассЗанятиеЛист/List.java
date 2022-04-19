@@ -79,5 +79,4 @@ public class List {
     private void popHead() { // Удаление head
         this.head = this.head.getNextNode();
     }
-
 }
