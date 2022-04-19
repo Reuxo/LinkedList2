@@ -4,6 +4,7 @@ public class Node {
     private int value;
     private Node nextNode;
 
+
     public int getValue() {
         return value;
     }
