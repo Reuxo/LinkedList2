@@ -33,5 +33,4 @@ public class HomeWork {
         list.push(list.getHead().getNextNode().getValue());
         list.pop(1);
     }
-
 }
