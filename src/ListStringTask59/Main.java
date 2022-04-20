@@ -28,7 +28,9 @@ public class Main {
         //System.out.println("Совпадения с первым словом : " + HomeWork.task7(list7, true));
         //System.out.println("Совпадения с последним словом : " + HomeWork.task7(list7, false));
         //System.out.println(HomeWork.task8(list8));
-        //System.out.println(HomeWork.task9(list89, list9_10));
-        HomeWork.task10(list9_10);
+        System.out.println(HomeWork.task9(list89, list9_10));
+
+        //HomeWork.task10(list9_10);
+        //list9_10.printList();
     }
 }

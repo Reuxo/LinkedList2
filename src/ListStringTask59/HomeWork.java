@@ -71,45 +71,38 @@ public class HomeWork {
     }
 
     //Определить, входит ли список L1 в L2.
-    public static boolean task9(List bigList, List smallList) {
-        Node nodeTmpBig = bigList.getHead();
-        Node nodeTmpSmall = smallList.getHead();
-        while (nodeTmpBig.getNextNode() != null) {
-            if(nodeTmpBig.getValue() == nodeTmpSmall.getValue()) {
-                System.out.println(nodeTmpBig.getValue().toString());
-                Node nodeTmpBig1 = nodeTmpBig;
-                while (nodeTmpSmall.getNextNode() != null) {
-                   if(nodeTmpBig1.getValue() != nodeTmpSmall.getValue()) {
-                       System.out.println(nodeTmpBig1.getValue().toString());
-                       System.out.println(nodeTmpSmall.getValue().toString());
-                       break;
-                   }
-                   else {
-                       nodeTmpSmall = nodeTmpSmall.getNextNode();
-                       nodeTmpBig = nodeTmpBig.getNextNode();
-                   }
-                   return true;
-                }
-                return false;
-            }
-            nodeTmpBig = nodeTmpBig.getNextNode();
+    public static boolean task9(List listBig, List listSmall) {
+        StringBuilder stringBuilderBig = new StringBuilder();
+        StringBuilder stringBuilderSmall = new StringBuilder();
+        Node nodeTmp = listBig.getHead();
+        while (nodeTmp != null) {
+            stringBuilderBig.append(nodeTmp.getValue().toString());
+            nodeTmp = nodeTmp.getNextNode();
         }
-        return false;
+        nodeTmp = listSmall.getHead();
+        while (nodeTmp != null) {
+            stringBuilderSmall.append(nodeTmp.getValue().toString());
+            nodeTmp = nodeTmp.getNextNode();
+        }
+        return (stringBuilderBig.toString().contains(stringBuilderSmall.toString()));
     }
+
     //Перевернуть список наоборот.
     public static void task10(List list) {
         Node nodeTmp = list.getHead();
         int count = 1;
-        while (nodeTmp.getNextNode() != null) {
+        while (nodeTmp.getNextNode().getNextNode() != null) {
             count++;
             nodeTmp = nodeTmp.getNextNode();
         }
-        System.out.println(nodeTmp.getValue().toString());
-        System.out.println(count);
-        //i = 0;
-        list.push(nodeTmp.getValue(), 0);
-        list.pop();
-        list.printList();
-        //i = 1;
+        for (int i = count; i > 0; i--) {
+            nodeTmp = list.getHead();
+            for (int j = 0; j < i - 1; j++) {
+                nodeTmp = nodeTmp.getNextNode();
+            }
+            list.push(nodeTmp.getValue());
+            list.pop(i - 1);
+        }
+
     }
 }
