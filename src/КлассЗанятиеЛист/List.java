@@ -2,6 +2,15 @@ package КлассЗанятиеЛист;
 
 public class List {
     private Node head;
+    private int length;
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
 
     public Node getHead() {
         return head;
@@ -13,10 +22,12 @@ public class List {
 
     public List() {
         this.head = null;
+        this.length = 0;
     }
 
     public List(Node head) {
         this.head = head;
+        this.length = 1;
     }
 
     public void printList() { // Вывод списка в консоль
@@ -36,6 +47,7 @@ public class List {
             nodeTmp = nodeTmp.getNextNode();
         }
         nodeTmp.setNextNode(new Node(value));
+        this.length++;
     }
 
     public void push(int value, int index) { //Вставка новой Ноды со значением value по index
@@ -48,12 +60,14 @@ public class List {
             }
             Node nextNode = new Node(value, nodeTmp.getNextNode());
             nodeTmp.setNextNode(nextNode);
+            this.length++;
         }
     }
 
     private void pushHead(int value) { //Вставка новой ноды со значением value в head
         Node node = new Node(value, this.head);
         this.head = node;
+        this.length++;
     }
 
     public void pop() {  //Удаление последнего элемента списка
@@ -62,6 +76,7 @@ public class List {
             nodeTmp = nodeTmp.getNextNode();
         }
         nodeTmp.setNextNode(null);
+        this.length--;
     }
 
     public void pop(int index) {  //Удаление по индексу
@@ -73,10 +88,12 @@ public class List {
                 nodeTmp = nodeTmp.getNextNode();
             }
             nodeTmp.setNextNode(nodeTmp.getNextNode().getNextNode());
+            this.length--;
         }
     }
 
-    private void popHead() { // Удаление head
+    public void popHead() { // Удаление head
         this.head = this.head.getNextNode();
+        this.length--;
     }
 }
