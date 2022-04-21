@@ -13,5 +13,4 @@ public class HomeWorkIterator {
         }
         return ((double) sum / list.getLength());
     }
-
 }

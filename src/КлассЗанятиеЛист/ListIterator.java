@@ -36,5 +36,4 @@ public class ListIterator implements Iterator<Node> {
         return tmp;
 
     }
-
 }

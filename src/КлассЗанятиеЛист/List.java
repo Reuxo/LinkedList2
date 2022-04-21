@@ -96,4 +96,5 @@ public class List {
         this.head = this.head.getNextNode();
         this.length--;
     }
+
 }
