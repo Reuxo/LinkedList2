@@ -2,6 +2,16 @@ package ListStringTask59;
 
 public class List {
     private Node head;
+    private int length;
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
     public Node getHead() {
         return head;
     }
@@ -17,15 +27,18 @@ public class List {
     }
     public List() {
         this.head = null;
+        this.length = 0;
     }
     public List(Node head) {
         this.head = head;
+        this.length = 1;
     }
     public List(Object[] arrayInput) {
         this.head = new Node(arrayInput[0]);
         for (int i = 1; i < arrayInput.length; i++) {
             this.push(arrayInput[i]);
         }
+        this.length = arrayInput.length;
     }
     public void printList() {
         System.out.print("[");
@@ -42,6 +55,7 @@ public class List {
             nodeTmp = nodeTmp.getNextNode();
         }
         nodeTmp.setNextNode(new Node(value));
+        this.length++;
     }
     public void push(Object value, int index) {
         if (index == 0) {
@@ -55,10 +69,12 @@ public class List {
             Node newNode = new Node(value, nodeTmp.getNextNode());
             nodeTmp.setNextNode(newNode);
         }
+        this.length++;
     }
     private void pushHead(Object value) {
         Node node = new Node(value, this.head);
         this.head = node;
+
     }
     public void pop() {
         Node nodeTmp = this.head;
@@ -66,6 +82,7 @@ public class List {
             nodeTmp = nodeTmp.getNextNode();
         }
         nodeTmp.setNextNode(null);
+        this.length--;
     }
     public void pop(int index) {
         if (index == 0) {
@@ -78,6 +95,7 @@ public class List {
             }
             nodeTmp.setNextNode(nodeTmp.getNextNode().getNextNode());
         }
+        this.length--;
     }
     private void popHead() {
         this.head = this.head.getNextNode();
