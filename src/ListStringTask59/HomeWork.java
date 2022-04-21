@@ -58,14 +58,21 @@ public class HomeWork {
     }
 
     //Проверить, упорядочены ли элементы списка по алфавиту.
-    public static boolean task8(List list) {
-        Node nodetmp = list.getHead();
-        while (nodetmp.getNextNode() != null) {
-            if (Character.toLowerCase(nodetmp.getValue().toString().charAt(0)) >
-                    Character.toLowerCase(nodetmp.getNextNode().getValue().toString().charAt(0))) {
+    public static boolean isAlphabet(String word1, String word2) {
+        for (int i = 0; i < Math.min(word1.length(), word2.length()); i++) {
+            if (Character.toLowerCase(word1.charAt(i))  != Character.toLowerCase(word2.charAt(i)) ) {
+                return ((word1.charAt(i) < word2.charAt(i)));
+            }
+        }
+        return (word1.length() < word2.length());
+    }
+    public static boolean task8(List list){
+        Node nodeTmp = list.getHead();
+        while (nodeTmp.getNextNode() != null) {
+            if(!isAlphabet(nodeTmp.getValue().toString(),nodeTmp.getNextNode().getValue().toString())){
                 return false;
             }
-            nodetmp = nodetmp.getNextNode();
+            nodeTmp = nodeTmp.getNextNode();
         }
         return true;
     }
